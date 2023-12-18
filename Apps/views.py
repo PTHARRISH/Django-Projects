@@ -67,3 +67,7 @@ def num(request,num1,num2):
     return render(request,'apps/num.html',context=mydict)
 
 
+def myimage(request):
+    return render(request,'apps/images.html')
+
+

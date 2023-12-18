@@ -21,5 +21,7 @@ urlpatterns=[
      # create fruit list convert dictionary and display in templates
      path('fruits/',views.fruits,name='fruits'),
      # If else part print num1 or num2 Greater
-     path('num/<int:num1>/<int:num2>',views.num,name='num')
+     path('num/<int:num1>/<int:num2>',views.num,name='num'),
+     # print Image in static files
+     path('image/',views.myimage,name='myimage')
 ]
