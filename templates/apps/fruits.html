@@ -1,0 +1,11 @@
+{%extends 'first.html' %}
+{%block title%}Third Page{%endblock%}
+{%block content%}
+<!-- To print key and values passed in views to templates -->
+{% for key,value in dict1.items%}
+<!-- dictionary.items without paranthesis -->
+<p>{{key}}:{{value}}</p>
+{% endfor %}
+<!-- endfor indicates the end of the for loop -->
+{%endblock%}
+
