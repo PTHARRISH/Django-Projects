@@ -98,3 +98,6 @@ def submitform(request):
     return JsonResponse(mydict)
 
 
+
+
+

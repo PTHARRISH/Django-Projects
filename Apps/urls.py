@@ -25,9 +25,11 @@ urlpatterns=[
      # print Image and css stye in static files
      path('image/<str:image>',views.myimage,name='myimage'),
      # create form and enter the data
-     path('forms/',views.myforms,name='myforms'),
-     #
-     path('submit/',views.submitform,name='submitform')
+     path('myforms/',views.myforms,name='myforms'),
+     # get the data from the form.html and display in the submitform json responses
+     path('submit/',views.submitform,name='submitform'),
+     # 
+     # path('form/',views.forms,name="forms")
 
 
 
