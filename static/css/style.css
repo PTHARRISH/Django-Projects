@@ -1,3 +1,9 @@
 h1{
-    color: crimson;   
+    text-align: center;
+    margin-top: 1rem;
+    color:blue;   
+}
+
+.col-md-6{
+    margin: 0 auto;
 }

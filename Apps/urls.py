@@ -23,6 +23,8 @@ urlpatterns=[
      # If else part print num1 or num2 Greater
      path('num/<int:num1>/<int:num2>',views.num,name='num'),
      # print Image and css stye in static files
-     path('image/<str:image>',views.myimage,name='myimage')
+     path('image/<str:image>',views.myimage,name='myimage'),
+     path('forms/',views.myforms,name='myforms')
+
 
 ]

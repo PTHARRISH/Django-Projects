@@ -80,4 +80,7 @@ def myimage(request,image):
     }
     return render(request,'apps/images.html',context=mydict)
 
+def myforms(request):
+    return render(request,'apps/myforms.html')
+
 
