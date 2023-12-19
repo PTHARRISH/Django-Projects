@@ -66,8 +66,18 @@ def num(request,num1,num2):
     }
     return render(request,'apps/num.html',context=mydict)
 
-
-def myimage(request):
-    return render(request,'apps/images.html')
+# Create static File pass image name and in html
+def myimage(request,image):
+    img_name=str(image).split('.')[0]
+    img=img_name.lower()
+    print(img)
+    if img=="django":
+        var=True
+    elif img=="python":
+        var=False
+    mydict={
+        'var':var
+    }
+    return render(request,'apps/images.html',context=mydict)
 
 

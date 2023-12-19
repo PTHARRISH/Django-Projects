@@ -22,6 +22,7 @@ urlpatterns=[
      path('fruits/',views.fruits,name='fruits'),
      # If else part print num1 or num2 Greater
      path('num/<int:num1>/<int:num2>',views.num,name='num'),
-     # print Image in static files
-     path('image/',views.myimage,name='myimage')
+     # print Image and css stye in static files
+     path('image/<str:image>',views.myimage,name='myimage')
+
 ]
