@@ -66,7 +66,7 @@ def num(request,num1,num2):
     }
     return render(request,'apps/num.html',context=mydict)
 
-# Create static File pass image name and in html
+# Create notes for static File pass image name and display the image in html 
 def myimage(request,image):
     img_name=str(image).split('.')[0]
     img=img_name.lower()
@@ -80,7 +80,21 @@ def myimage(request,image):
     }
     return render(request,'apps/images.html',context=mydict)
 
+# Create a form and enter the data
 def myforms(request):
     return render(request,'apps/myforms.html')
+
+
+# get the data from the form.html and display in the submitform json responses
+# using POST instead of GET the POST method shows CSRF verification failed. Request aborted.
+def submitform(request):
+    # email=request.GET.get('Email1')
+    # msg=request.GET['Textarea1']
+    mydict={
+        "email address":request.POST['Email1'],
+        "message":request.POST['Textarea1'],
+        "method":request.method
+    }
+    return JsonResponse(mydict)
 
 

@@ -24,7 +24,11 @@ urlpatterns=[
      path('num/<int:num1>/<int:num2>',views.num,name='num'),
      # print Image and css stye in static files
      path('image/<str:image>',views.myimage,name='myimage'),
-     path('forms/',views.myforms,name='myforms')
+     # create form and enter the data
+     path('forms/',views.myforms,name='myforms'),
+     #
+     path('submit/',views.submitform,name='submitform')
+
 
 
 ]
