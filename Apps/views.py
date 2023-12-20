@@ -101,7 +101,19 @@ def submitform(request):
 # create forms.py file and add fields
 def forms(request):
     if request.method=="POST":
-        pass
+        form=Feedback(request.POST)
+        if form.is_valid(): 
+            title=request.POST['title'] # title is class attribute
+            subject=request.POST['subject']
+            print(title)
+            print(subject)
+            a=str("Form submitted "+str(request.method)) # print method is get or post
+            return HttpResponse(a)
+        else:
+            mydict={
+                "form":form
+            }
+            return render(request,'apps/forms.html',context=mydict)
 
     elif request.method=="GET":
         form=Feedback() # feedback(None)

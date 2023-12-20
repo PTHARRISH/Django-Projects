@@ -6,13 +6,15 @@
 <link rel="stylesheet" href="{%static 'css/style.css'%}">
 <h1>Forms</h1>
 <div class="col-md-6">
-<form>
+<form method="post">
+    {%csrf_token%}
     <!-- Form as display in paragraph format -->
     <!-- {{form.as_p}}  -->
     <!-- Form as display in table format -->
     <!-- {{form.as_table}} -->
     <!-- Form as display in Unordered list -->
     {{form.as_ul}}
+    <button type="submit" class="btn btn-primary cent">submit</button>
     
 </form>
 </div>
