@@ -28,8 +28,8 @@ urlpatterns=[
      path('myforms/',views.myforms,name='myforms'),
      # get the data from the form.html and display in the submitform json responses
      path('submit/',views.submitform,name='submitform'),
-     # 
-     # path('form/',views.forms,name="forms")
+     # create forms.py file and add fields
+     path('forms/',views.forms,name="forms")
 
 
 

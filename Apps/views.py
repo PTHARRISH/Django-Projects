@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse # import and return data in httpresponse,jsonresponse
+from .forms import * # from forms file import feedback class 
 
 # Create your views here.
 
@@ -96,6 +97,18 @@ def submitform(request):
         "method":request.method
     }
     return JsonResponse(mydict)
+
+# create forms.py file and add fields
+def forms(request):
+    if request.method=="POST":
+        pass
+
+    elif request.method=="GET":
+        form=Feedback() # feedback(None)
+        mydict={
+            'form':form
+        }
+        return render(request,'apps/forms.html',context=mydict)
 
 
 
