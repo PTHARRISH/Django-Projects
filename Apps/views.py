@@ -124,18 +124,31 @@ def forms(request):
 
 def forms_alert(request):
     if request.method=="POST":
-        login=login(request.POST)
-        if login.is_valid():
+        loginfo=Loginform(request.POST)
+        if loginfo.is_valid():
+            username=request.POST['username']
+            password=request.POST['password']
+            # if username!=username.upper():
             my_dictionary={
-                "username":request.POST['username'],
-                "password":request.POST['password'],
+                "loginfo":loginfo, # You need to pass forms inputs to the html files
+                "username":username,
+                "password":password,
             }
             my_dictionary["success"]=True
-            my_dictionary["successmsg"]="Login successfull"
-            return HttpResponse(my_dictionary)
+            my_dictionary["successmsg"]="Login successful"
+            return render(request,'apps/alert.html',context=my_dictionary)
+        else:
+            my_dictionary={
+                "Loginfo":loginfo
+            }
+            return render(request,'apps/alert.html',context=my_dictionary)
 
-
-    return render(request,"apps/forms_alert.html",context=my_dictionary) 
+    elif request.method=="GET":
+        loginfo=Loginform()
+        my_dictionary={
+            "loginfo":loginfo
+        }
+        return render(request,"apps/alert.html",context=my_dictionary) 
 
 
 
