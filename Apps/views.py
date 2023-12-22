@@ -122,7 +122,20 @@ def forms(request):
         }
         return render(request,'apps/forms.html',context=mydict)
 
+def forms_alert(request):
+    if request.method=="POST":
+        login=login(request.POST)
+        if login.is_valid():
+            my_dictionary={
+                "username":request.POST['username'],
+                "password":request.POST['password'],
+            }
+            my_dictionary["success"]=True
+            my_dictionary["successmsg"]="Login successfull"
+            return HttpResponse(my_dictionary)
 
+
+    return render(request,"apps/forms_alert.html",context=my_dictionary) 
 
 
 
