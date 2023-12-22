@@ -11,5 +11,5 @@ class Feedback(forms.Form): # Form is sub class of forms
 
 #login form
 class Loginform(forms.Form):
-    username=forms.CharField(label="Username",max_length=25,widget=forms.TextInput(attrs={"class":"form-control"}))
+    username=forms.CharField(label="Username",max_length=25,widget=forms.EmailInput(attrs={"class":"form-control"}))
     password=forms.CharField(label="Password",max_length=50,widget=forms.PasswordInput(attrs={"class":"form-control"}))

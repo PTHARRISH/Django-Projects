@@ -122,21 +122,30 @@ def forms(request):
         }
         return render(request,'apps/forms.html',context=mydict)
 
+
+# create an login form and create alert validation 
 def forms_alert(request):
     if request.method=="POST":
         loginfo=Loginform(request.POST)
         if loginfo.is_valid():
             username=request.POST['username']
             password=request.POST['password']
-            # if username!=username.upper():
-            my_dictionary={
-                "loginfo":loginfo, # You need to pass forms inputs to the html files
-                "username":username,
-                "password":password,
-            }
-            my_dictionary["success"]=True
-            my_dictionary["successmsg"]="Login successful"
-            return render(request,'apps/alert.html',context=my_dictionary)
+            if username!=username.upper():
+                my_dictionary={
+                    "loginfo":loginfo, # You need to pass forms inputs to the html files
+                    "username":username,
+                    "password":password,
+                }
+                my_dictionary["success"]=True
+                my_dictionary["successmsg"]="Login successful"
+                return render(request,'apps/alert.html',context=my_dictionary)
+            else:
+                my_dictionary={
+                    "loginfo":loginfo
+                }
+                my_dictionary['error']=True
+                my_dictionary['errormsg']="Username is invalid"
+                return render(request,'apps/alert.html',context=my_dictionary)
         else:
             my_dictionary={
                 "Loginfo":loginfo

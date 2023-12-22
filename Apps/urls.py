@@ -30,5 +30,6 @@ urlpatterns=[
      path('submit/',views.submitform,name='submitform'),
      # create forms.py file and add fields.
      path('forms/',views.forms,name="forms"),
+     # create an login form and add the alert validation and display message
      path('alert/',views.forms_alert,name="forms_alert"),
 ]

@@ -10,6 +10,12 @@
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 {% endif %}
+{% if error == True %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert" style=" margin-top: 1rem;">
+    <strong>{{errormsg}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
 <h1>Login Form</h1>
 <form method="POST">
     {%csrf_token%}
