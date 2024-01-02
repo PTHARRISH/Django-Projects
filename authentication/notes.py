@@ -86,3 +86,71 @@
 # http://localhost:3000/create -> display Create page and display Create
 # 
 # here we add 
+
+# create  responsive navbar
+# install material ui 
+# To install goto https://mui.com/material-ui/,
+# and install "npm install @mui/material @emotion/react @emotion/styled "
+
+# To use material ui icons: 
+# npm install @mui/icons-material 
+# https://mui.com/material-ui/react-snackbar/,
+
+# After install the packages 
+# Go to material-ui drawer("Clipped under the app bar")  click show code button
+# Now the code is visible and copy the code
+# Create a file under the Navbar.js in Components folder and paste the code
+# Remove the typography component to remove the paragraphs
+
+# Now remove the divider and list 
+# And remove  the content -> {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => ( ))}
+# and delete the icons inside a listitem -> {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+# Remove the <ListItem key={text} disablePadding> -> key={text} disablePadding remove the keyinside listitem
+# Change the <ListItemText primary={text} /> -> <ListItemText primary={"Home"} />
+
+
+# Add icon in the items 
+# Goto https://mui.com/material-ui/material-icons/ search Home Icon
+# copy the icon link -> import HomeIcon from '@mui/icons-material/Home'; and paste in navbar.js header
+# Add Homeicon under ListItemIcon tag <ListItemIcon> <HomeIcon/> </ListItemIcon>
+
+
+# redirecting to home page:
+# create a url to redirecting home page import react router dom
+# import { Link, useLocation } from 'react-router-dom';
+
+# add icon components to redirect the path
+# and defined two variable location is used for page current loaction 
+# const location=useLocation()
+# const path=location.pathname
+# path is routing path
+# <ListItemButton component={Link} to="/about" selected={"/about" === path} >
+# if link selected it will redirected to the selected path
+# Now copy the listitems and make a copy and replace the icons and reroute the url
+
+# after changing the icons now change function name is export Navbar() and disablepadding on it
+# not necessary: add name in typicallogy display top of the navbar
+
+# import navbar in app.js:
+# import Navbar from './components/Navbar';
+# add the tag within the class
+#  <div className="App">
+    #   <Navbar/>
+    #   <Routes>
+
+# To change the drawer size
+# const drawerWidth = 240; change the value in navbar.js
+# To change the navbar width dynamically
+# 
+# navbar.js 
+# default function Navbar(props){
+#   const {drawerWidth}=props
+# }
+# 
+# In App.JS
+# function App() {
+#   const myWidth=200
+#   <Navbar drawerWidth={myWidth}/>
+
+
+
