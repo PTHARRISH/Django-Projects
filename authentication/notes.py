@@ -141,7 +141,9 @@
 # To change the drawer size
 # const drawerWidth = 240; change the value in navbar.js
 # To change the navbar width dynamically
-# 
+# // const drawerWidth = 200; remove the const to create dynamic drawer width
+
+
 # navbar.js 
 # default function Navbar(props){
 #   const {drawerWidth}=props
@@ -151,6 +153,74 @@
 # function App() {
 #   const myWidth=200
 #   <Navbar drawerWidth={myWidth}/>
+#  mywidth is appdrawer width
+
+# In navbar.js 
+# after </toolbar>  {content} tag add on it
+# then add const {drawerWidth,content}=props
+
+# In app.js 
+#  wrap the routes inside a navbar tag
+    #   <Navbar 
+    #   drawerWidth={myWidth}
+    #   content={
+    #     <Routes>
+    #     <Route path="" element={<Home/>}/>
+    #     <Route path="/about" element={<About/>}/>
+    #     <Route path="/create" element={<Create/>}/>
+    #   </Routes>
+    #   }
 
 
+#  Create two nav bar
 
+# hide navbar extra small size on it
+# create const myDrawer cut and paste the toolbar and listitems inside the myDrawer
+# const myDrawer=(
+#   <div>
+#     <Toolbar /> 
+#       </List>
+#       </Box> untill cut before the content
+# </div>
+
+#  and declare {content} before the </Drawer> close tag
+#  defined inside 
+# <drawer>        
+# sx={{
+#   display:{xs:"none",sm:"block"},//
+# display is used to when a screen size is extra small the navigation bar is none 
+
+# To create an icon for display navbar
+# import { IconButton } from '@mui/material';
+# and create  <IconButton /> before the Typography tag
+# Iconbutton needs to apply second drawer appears or disappear based on display condition 
+
+# declare useState:
+# const [open, setOpen]=React.useState(false);
+
+# create a arrow function:
+#   const changeOpenStatus=()=>{
+#     setOpen(!open)
+#   }
+# onclick:
+# <IconButton onClick={changeOpenStatus}/>
+
+# Create 2nd drawer
+# copy the drawer and paste the drawer after the 1st drawer
+# change display:{xs:"block",sm:"none"},
+# 2nd drawer will display when conditionally clicked
+# by default the it is false
+#   <Drawer
+#     variant="temporary"
+#     open={open}
+#     onClose={changeOpenStatus} 
+# now run it icon not display it
+
+# import MenuIcon from '@mui/icons-material/Menu';
+        #   <IconButton 
+        #   color="inherit"
+        #   onClick={changeOpenStatus} 
+        #   sx={{mr:2,display:{sm:"none"}}} #sx is style
+        #   >
+        #     <MenuIcon/>
+        #   </IconButton>
