@@ -15,34 +15,26 @@ import ListItemText from '@mui/material/ListItemText';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import CreateIcon from '@mui/icons-material/Create';
+import { IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 // redirecting home page import react router dom
 import { Link, useLocation } from 'react-router-dom';
 
-const drawerWidth = 200;
+// const drawerWidth = 200; remove the const to create dynamic drawer width
 
 export default function Navbar(props) {
   const location=useLocation()
   const path=location.pathname
-  const {drawerWidth}=props
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer
-        variant="permanent"
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
-        }}
-      >
-        <Toolbar />
+  const {drawerWidth,content}=props
+  const [open, setOpen]=React.useState(false);
+
+  const changeOpenStatus=()=>{
+    setOpen(!open)
+  }
+
+const myDrawer=(
+  <div>
+    <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
           <List>
             
@@ -78,9 +70,68 @@ export default function Navbar(props) {
             
           </List>
         </Box>
+  </div>
+
+)
+
+  return (
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <Toolbar>
+          <IconButton 
+          color="inherit"
+          onClick={changeOpenStatus} 
+          sx={{mr:2,display:{sm:"none"}}} 
+          // sx is style
+          >
+            <MenuIcon/>
+          </IconButton>
+
+
+           {/*iconbutton needs to apply second drawer appears or disappear based on display condition  */}
+          <Typography variant="h6" noWrap component="div">
+            Dashboard
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="permanent"
+        sx={{
+          display:{xs:"none",sm:"block"}, 
+          // display is used to when a screen size is extra small the navigation bar is none 
+          width: drawerWidth,
+          flexShrink: 0,
+          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+        }}
+      >
+        {myDrawer}
+        {/* display listitems and icons */}
       </Drawer>
+
+
+      <Drawer
+        variant="temporary"
+        open={open}
+        onClose={changeOpenStatus}
+        sx={{
+          display:{xs:"block",sm:"none"}, 
+          // display is used to when a screen size is extra small the navigation bar is none 
+          width: drawerWidth,
+          flexShrink: 0,
+          [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+        }}
+      >
+        {myDrawer}
+        {/* display listitems and icons */}
+      </Drawer>
+
+
+
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
+        {content} 
+        {/* content and routes */}
 
       </Box>
     </Box>
