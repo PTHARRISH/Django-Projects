@@ -244,3 +244,13 @@
 # the way from the frontend to backend but if we want to get some information then displayed on the screen.
 
 # Creating the model for our project  
+# open models.py file and create class project for project
+# make migration -> python manage.py make migrations
+# and migrate -> python manage.py migrate.
+# Go to models.py file import
+# from .models import *
+# # Register your models here.
+# admin.site.register(project)
+# create superuser -> python manage.py createsuperuser
+# open admin portal add the data
+ 
