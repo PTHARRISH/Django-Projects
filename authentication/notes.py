@@ -224,3 +224,23 @@
         #   >
         #     <MenuIcon/>
         #   </IconButton>
+
+
+
+# CRUD 
+# |                           Django                                     |                 React                                |
+# SQLite  <-----> views.py <------> serializer.py <-----> urls.py  <------>         AXIOS       <------>   JS
+# 1.Database  |             1.Backend                                  |   3.making the request    | | 2.Forms on frontend |
+# following our models.py                                                Fetches and sends request        JS file with forms
+
+
+# you fill in the forms on that JS file and with AXIOS will send that request over to our backend 
+# because AXIOS is used for fetching and sending requests that request will end up in a urls
+# we have defined at urls.py file which serves as kind of our API URL and the data from that URL is serialized
+# by our serializer and a serializer takes the data from our frontend which is in the Json format
+# and transform it into a format that python can read and use it is kind of bridge between our frontend and 
+# our backend next the data when it is serialized use it inside of our views inside of our views.py file.
+# That data is then sent to our database. This process works both ways because if we post a request it goes all
+# the way from the frontend to backend but if we want to get some information then displayed on the screen.
+
+# Creating the model for our project  
