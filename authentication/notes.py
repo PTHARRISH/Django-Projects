@@ -252,5 +252,14 @@
 # # Register your models here.
 # admin.site.register(project)
 # create superuser -> python manage.py createsuperuser
-# open admin portal add the data
- 
+# open admin portal add the data in the panel
+
+
+# create a projectview class in views.py
+# from rest_framework import viewsets,permissions
+# from .models import *
+# import the modules
+# class projectview(viewsets.ViewSet):
+#   permission_classes=[permissions.AllowAny]
+#   queryset=project.objects.all()
+     
