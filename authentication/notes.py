@@ -1,3 +1,4 @@
+# Authentication Notes
 # create two folders : front, backend
 # create virtual environment: py -m venv (venv name)
 # move to backend : cd backend
